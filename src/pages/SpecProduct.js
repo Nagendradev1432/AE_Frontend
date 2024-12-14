@@ -12,7 +12,7 @@ import Button from "../components/Button";
 import ProductMainMabyKnow from "../components/mapyknow/ProductMainMabyKnow";
 import Loader from "../UI/Loader";
 import toast from "react-hot-toast";
-import Back from "../components/Back";
+
 const qunatity = [1, 2, 3, 4, 5, 6];
 export default function SpecProduct() {
   const { id } = useParams();
@@ -56,7 +56,7 @@ export default function SpecProduct() {
 
   return (
     <div>
-        <div><Back/></div>
+        
       <div className="max-w-5xl flex md:flex-row flex-col items-center mx-auto justify-between py-10  ">
         <div className=" sm:w-2/3 w-full  px-5 md:px-0  h-[356px] mb-5">
           <img
