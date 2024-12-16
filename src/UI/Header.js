@@ -60,7 +60,7 @@ export default function Header() {
       {user.token && (
         <ul className="flex  items-center">
           <li className="py-7 px-3 hidden md:block hover:bg-white transition-all duration-75 text-sm  font-thin">
-            <Link to={"/"}>welcome ahmed</Link>
+            <Link to={"/"}>welcome,{user.name}</Link>
           </li>
           <li className="py-7 px-3 hidden md:block hover:bg-white transition-all duration-75 text-sm  font-thin">
             <Link to={"/profile"}>my account</Link>

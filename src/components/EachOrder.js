@@ -17,24 +17,8 @@ export default function EachOrder({order}) {
           <p className='w-1/4 text-center'>{Math.floor(order.finalPrice)}$</p>
           <p className='w-1/4 text-center'>{convertToDayMonthYear(order.date)}</p>
     </li>
-    <li className='text-black flex justify-between text-xs items-center border-[1px] border-b-[#3333331f] py-3'>
-          <p className='w-1/4 text-center'>{order.products.length}</p>
-          <p className='w-1/4 text-center'>{Math.floor(order.totalPrice)}$</p>
-          <p className='w-1/4 text-center'>{Math.floor(order.finalPrice)}$</p>
-          <p className='w-1/4 text-center'>{convertToDayMonthYear(order.date)}</p>
-    </li>
-    <li className='text-black flex justify-between text-xs items-center border-[1px] border-b-[#3333331f] py-3'>
-          <p className='w-1/4 text-center'>{order.products.length}</p>
-          <p className='w-1/4 text-center'>{Math.floor(order.totalPrice)}$</p>
-          <p className='w-1/4 text-center'>{Math.floor(order.finalPrice)}$</p>
-          <p className='w-1/4 text-center'>{convertToDayMonthYear(order.date)}</p>
-    </li>
-    <li className='text-black flex justify-between text-xs items-center border-[1px] border-b-[#3333331f] py-3'>
-          <p className='w-1/4 text-center'>{order.products.length}</p>
-          <p className='w-1/4 text-center'>{Math.floor(order.totalPrice)}$</p>
-          <p className='w-1/4 text-center'>{Math.floor(order.finalPrice)}$</p>
-          <p className='w-1/4 text-center'>{convertToDayMonthYear(order.date)}</p>
-    </li>
+    
+    
     </div>
   )
 }

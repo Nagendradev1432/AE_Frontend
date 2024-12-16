@@ -31,7 +31,7 @@ export default function Profile() {
     );
 
   return (
-    <div className="h-auto pb-5 bg-[#EEEEEE]">
+    <div className="h-auto pb-5 bg-[#EEEEEE] px-4">
       <div>
         <UserImage show={show} />
       </div>

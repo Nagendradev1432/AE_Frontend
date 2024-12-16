@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { getOrders } from "../utilities/api";
 import EachOrder from "../components/EachOrder";
 import Loader from "../UI/Loader";
+import { useNavigate } from "react-router-dom";
 function convertToReadableDate(dateInput) {
   const date = new Date(dateInput); // Convert input to a Date object
   const options = {
@@ -19,6 +20,7 @@ function convertToReadableDate(dateInput) {
 // Example usage:
 
 export default function Orders() {
+  const navigate =useNavigate()
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ["orders"],
     queryFn: getOrders,
@@ -30,8 +32,15 @@ export default function Orders() {
         <Loader h={120} w={120} />{" "}
       </div>
     );
-  let orders = data.data.data;
 
+    if(!data.data.data.length ) return <div>
+    <p className="text-lg font-semibold text-center py-3 tracking-wider"> There are no orders  </p>
+    <button onClick={()=>navigate("/")} className="bg-black text-white rounded-lg  px-3 py-1 block mx-auto">Go Shopping & Make orders</button>
+    </div>
+    
+
+  let orders = data.data.data;
+    
   return (
     <div className="w-full  mx-auto flex flex-col items-center lg:flex-row gap-x-10  justify-center">
       <div className="new  overflow-y-auto shadow-lg rounded-md h-[250px] bg-[#eee] text-sm sm:text-base w-full sm:w-1/2 lg:w-1/3 py-3 px-4 mb-20 ">
@@ -59,7 +68,7 @@ export default function Orders() {
           <p>FinalPrice: {Math.floor(orders[orders.length - 1].finalPrice)}$</p>
         </div>
       </div>
-      <div className="prev w-full sm:w-1/2 lg:w-1/3 shadow-lg rounded-md bg-[#eee]   h-[250px] overflow-y-auto">
+     { data.data.data.length >= 2 ? <div className="prev w-full sm:w-1/2 lg:w-1/3 shadow-lg rounded-md bg-[#eee]   h-[250px] overflow-y-auto">
         <div className="px-3">
           <h3 className="py-3  tracking-widest  text-lg font-semibold border-b-black border-b-[1px] w-1/2">
             previous orders
@@ -76,7 +85,7 @@ export default function Orders() {
             <EachOrder key={order._id} order={order} />
           ))}
         </ul>
-      </div>
+      </div>: null}
     </div>
   );
 }
