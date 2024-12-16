@@ -44,7 +44,7 @@ export default function Cart() {
     },
   });
 
-  if (isLoading || isFetching || isError || checkerLoading)
+  if (isLoading || isFetching || isError )
     return (
       <div className=" absolute bg-[#0000003c] w-full top-0 left-0 bottom-0 flex justify-center items-center">
        
@@ -104,7 +104,8 @@ export default function Cart() {
               onClick={mutate}
               className="py-3 px-4 bg-black w-2/6 text-white block disabled:cursor-not-allowed"
             >
-              APPLY
+            { checkerLoading ? <Loader w={30} h={30}/> : "APPLY"}
+              
             </button>
             {error && (
               <div className="w-full text-red-500 font-thin"> {error} </div>

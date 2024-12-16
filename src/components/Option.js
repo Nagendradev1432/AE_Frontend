@@ -125,11 +125,11 @@ export default function Option() {
             ))}
           </ul>
           <div className="px-3">
-            <Button
+            {!lodaingMutation?<Button
               text={"Add To Basket"}
               decoration={"bg-black py-2 px-4 text-white w-full my-5 "}
               fn={onclick}
-            />
+            />:<p className="bg-black py-2 px-4 text-white w-full my-5"><Loader w={30} h={30}/></p>}
           </div>
           <div onClick={()=>navigate(`/product/${ProductId}`)} className="flex justify-between items-center border-[1px] border-black mx-3 px-3 py-1 cursor-pointer">
             <span className="block">View Full Product</span>

@@ -39,11 +39,11 @@ export default function ItemCart({ product }) {
     },
   });
 
-  if (removeLoading || updateLoading)
+  if (removeLoading)
     return (
       <div className=" absolute    w-full top-0 left-0 bottom-0 flex justify-center items-center">
-        {" "}
-        <Loader h={120} w={120} />{" "}
+        
+        <Loader h={120} w={120} />
       </div>
     );
   return (
@@ -68,8 +68,8 @@ export default function ItemCart({ product }) {
               )}
               {pro.discount && (
                 <p className={`${pro.discount && "text-red-500"}`}>
-                  EGP {pro.price}
-                  .00{" "}
+                  EGP {Math.floor(pro.price)}
+                  .00{""}
                 </p>
               )}
               {!pro.discount && (
@@ -97,11 +97,11 @@ export default function ItemCart({ product }) {
       </div>
       <div className="flex justify-between">
         <p>Move to Favorites</p>
-        <select onChange={(e)=>mutationUpdate({id:pro._id,size:product.size,amount:+e.target.value})} className=" border-2 border-[#eee] focus:outline-none w-1/5 px-3 py-1" defaultValue={product.amount}>
+        {!updateLoading?<select onChange={(e)=>mutationUpdate({id:pro._id,size:product.size,amount:+e.target.value})} className=" border-2 border-[#eee] focus:outline-none w-1/5 px-3 py-1" defaultValue={product.amount}>
           {qunatity.map((num) => (
             <option key={num} value={num}>{num}</option>
           ))}
-        </select>
+        </select>: <p className="bg-black w-1/5 px-3 py-1"><Loader w={30} h={20}/></p> }
       </div>
     </div>
   );

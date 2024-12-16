@@ -46,7 +46,7 @@ export default function SpecProduct() {
     enabled: !!id,
   });
   useEffect(() => {}, [id, data]);
-  if (isLoading || isFetching || lodaingMutation)
+  if (isLoading || isFetching  )
     return (
       <div className=" absolute bg-[#0000003c] w-full top-0 left-0 bottom-0 flex justify-center items-center">
        
@@ -162,11 +162,11 @@ export default function SpecProduct() {
               </ListboxOptions>
             </Listbox>
           </div>
-          <Button
+          {!lodaingMutation?<Button
             text={"Add To Basket"}
             decoration={"bg-black py-2 px-4 text-white w-full my-5 "}
             fn={onclick}
-          />
+          />: <p className="bg-black py-2 px-4 text-white w-full my-5"><Loader w={30} h={30}/></p>}
 
           {data.data.data.description && (
             <div className="py-3 border-t-[1px] border-[#333]">
