@@ -20,6 +20,7 @@ export default function Profile() {
     queryFn: getUser,
     onSuccess: (data) => {
       dispatch(setImage(data.data.data.image));
+      
     },
   });
 

@@ -48,9 +48,9 @@ export default function Option() {
   }
   if (isLoading || isFetching)
     return (
-      <div className=" absolute bg-[#0000003c] w-full top-0 left-0 bottom-0 flex justify-center items-center">
-        {" "}
-        <Loader h={120} w={120} />{" "}
+      <div className=" fixed z-50  w-full bg-[#0000003c] top-0 left-0 bottom-0  translate-[-50%,-50%] flex justify-center items-center">
+        
+        <Loader h={120} w={120} c={"#333"} />{" "}
       </div>
     );
 
@@ -60,12 +60,12 @@ export default function Option() {
       <div className="option w-2/3 sm:w-1/5  overflow-auto">
         <div className="flex justify-between py-4 items-center px-2">
           <h4 className="w-5/6 text-center font-semibold">Quick View</h4>
-          <p
+          <button
             className="text-2xl w-1/6 cursor-pointer text-right"
             onClick={() => setSearchParams({ Toggle: "false" })}
           >
             <AiOutlineClose />
-          </p>
+          </button>
         </div>
         <div>
           <div>

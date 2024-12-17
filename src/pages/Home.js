@@ -9,10 +9,13 @@ import SataicBackGround from "../UI/SataicBackGround";
 import {getUser} from "../redux/userSlice"
 export default function Home() {
   const navigate = useNavigate()
-  const disatch = useDispatch()
-  useEffect(()=>{
-    disatch(getUser())
-  },[])
+  const dispatch = useDispatch()
+  
+  if(localStorage.getItem("token")){
+    
+    dispatch(getUser());
+    console.log("welcome")
+  }
   function handleClick(name,id){
     navigate(`/${name}/${id}`)
   }

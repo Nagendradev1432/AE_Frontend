@@ -24,6 +24,7 @@ export default function UserImage({ show }) {
     },
   });
 
+    
   if (isLoading) return<div className=" absolute bg-[#0000003c] w-full top-0 left-0 bottom-0 flex justify-center items-center">
           <Loader h={120} w={120} />{" "}
         </div>;

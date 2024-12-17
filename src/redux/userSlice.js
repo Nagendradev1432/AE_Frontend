@@ -30,6 +30,7 @@ export const getUser = createAsyncThunk("user/getUser", async () => {
         token: localStorage.getItem("token"),
       },
     });
+   
     return res.data
   } catch (err) {
     console.log(err);
@@ -50,19 +51,7 @@ const initialState = {
   code:""
 };
 
-if (localStorage.getItem("token")) {
-  const decoded = jwtDecode(localStorage.getItem("token"));
-  initialState.name = decoded.user.name;
-  initialState.cart = decoded.user.cart;
-  initialState.phone = decoded.user.phone;
-  initialState.email = decoded.user.email;
-  initialState.address = decoded.user.address;
-  initialState.wishList = decoded.user.wishList;
-  initialState.role = decoded.user.role;
-  initialState.gender = decoded.user.gender;
 
- 
-}
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -70,16 +59,7 @@ const userSlice = createSlice({
     reciveToken(state, action) {
       localStorage.setItem("token", action.payload);
       state.token = action.payload;
-      const decoded = jwtDecode(action.payload);
-      state.name = decoded.user.name;
-      state.cart = decoded.user.cart;
-      state.phone = decoded.user.phone;
-      state.email = decoded.user.name;
-      state.address = decoded.user.address;
-      state.wishList = decoded.user.wishList;
-      state.role = decoded.user.role;
-      state.gender = decoded.user.gender;
-      state.image = decoded.user.image
+      
     },
 
     signout(state, action) {
@@ -102,12 +82,22 @@ const userSlice = createSlice({
       .addCase(uploadFile.fulfilled, (state, action) => {
         state.uploading = false;
         state.success = true;
+
        
       })
       .addCase(getUser.fulfilled, (state, action) => {
         state.uploading = false;
         state.success = true;
-        state.image = action.payload.data.image
+        state.wishList = action.payload.data.wishList
+        state.name = action.payload.data.name;
+      state.cart = action.payload.data.cart;
+      state.phone = action.payload.data.phone;
+      state.email = action.payload.data.name;
+      state.address = action.payload.data.address;
+      state.wishList = action.payload.data.wishList;
+      state.role = action.payload.data.role;
+      state.gender = action.payload.data.gender;
+      state.image = action.payload.data.image
        
       })
       .addCase(uploadFile.rejected, (state, action) => {});

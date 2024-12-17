@@ -18,7 +18,7 @@ export default function ResponsiveNav() {
       </div>
       
       <div className="flex items-center gap-x-4 ps-32">
-        <p className="text-xs"><Back/></p>
+        <div className="text-xs"><Back/></div>
         <Link to={"/wishList"} className="text-[25px]">
           <FaRegHeart />
         </Link>

@@ -110,6 +110,16 @@ export const deleteFromWishList = (id) => {
     .then((res) => toast.success("Removed from wishList successfully"))
     .catch((err) => toast.error("err happened"));
 };
+export const clearWishList = () => {
+  return axios
+    .delete(`${baseUrl}wishList/`, {
+      headers: {
+        token: localStorage.getItem("token"),
+      },
+    })
+    .then((res) => toast.success("clear wishList successfully"))
+    .catch((err) => toast.error("err happened"));
+};
 
 export const getWishList = () => {
   return axios.get(`${baseUrl}wishList`, {

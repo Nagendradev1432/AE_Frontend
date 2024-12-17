@@ -16,9 +16,9 @@ export default function WideNav({searchValue,setSearchValue}) {
           placeholder="what are you looking for?"
           className="py-1 px-3 border-[.5px] w-[300px] focus:outline-none  rounded-md  border-black placeholder:text-sm "
         />
-        <p className=" absolute right-3 text-[20px] text-[#211f1f87] ">
+        <div className=" absolute right-3 text-[20px] text-[#211f1f87] ">
           <FaMagnifyingGlass />
-        </p>
+        </div>
       </div>
 
       <div className="">
@@ -28,7 +28,7 @@ export default function WideNav({searchValue,setSearchValue}) {
       </div>
 
       <div className="flex gap-x-4 ps-32 items-center">
-        <p><Back/></p>
+        <div><Back/></div>
         <Link to={"/wishList"} className="text-[30px]">
           <FaRegHeart />
         </Link>

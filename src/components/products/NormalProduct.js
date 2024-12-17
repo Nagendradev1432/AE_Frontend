@@ -5,9 +5,27 @@ import { Link, useSearchParams } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useMutation, useQueryClient } from "react-query";
 import { addToWhishList, deleteFromWishList } from "../../utilities/api";
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from "../../redux/userSlice";
 
 export default function NormalProduct({ product }) {
   const [searchParams, setSearchParams] = useSearchParams();
+  const userWishList = useSelector(store => store.user.wishList) 
+  let flage = false;
+
+  const dispatch = useDispatch()
+
+    if(userWishList.length){
+      userWishList.forEach(element => {
+            if(product._id == element.product){
+              flage = true 
+            }else{
+             
+            }
+      });
+    }else{
+
+    }
 
   function handleClick(id) {
     setSearchParams({ productId: id, Toggle: true });
@@ -17,12 +35,14 @@ export default function NormalProduct({ product }) {
   const { mutate } = useMutation({
     mutationKey: ["wishListPro"],
     mutationFn: () =>
-      !product.inWishList
+      !flage
         ? addToWhishList(product._id)
         : deleteFromWishList(product._id),
     onSuccess: () => {
+      dispatch(getUser())
       QueryClient.invalidateQueries({
         queryKey: ["wishList"],
+       
       });
 
       QueryClient.invalidateQueries({
@@ -43,7 +63,7 @@ export default function NormalProduct({ product }) {
         onClick={mutate}
         className="text-2xl absolute cursor-pointer  right-6 top-6 font-thin"
       >
-        {!product.inWishList ? <FaRegHeart /> : <FaHeart />}
+        {!flage ? <FaRegHeart /> : <FaHeart />}
       </div>
       <Link to={`/product/${product._id}`}>
         <img src={product.imageCover.secure_url} alt="imageCover" />
