@@ -40,7 +40,7 @@ export default function Register() {
     address: yup.string().required(),
     phone: yup
       .string()
-      .matches(/^01[1250][0-9]{8}$/, "invalid number")
+      .matches(/[0-9]{10}$/, "invalid number")
       .required(),
     gender: yup.string().required(),
   });
