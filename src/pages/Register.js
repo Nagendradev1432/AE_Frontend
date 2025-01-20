@@ -82,7 +82,7 @@ export default function Register() {
                 value={formikRegister.values.name}
                 type="text"
                 name="name"
-                placeholder="Full Name"
+                placeholder="john"
                 className="px-3 py-2 mt-4 border-b-[1px] border-black w-full sm:w-2/3 focus:outline-none"
               />
               {formikRegister.errors.name && formikRegister.touched.name ? (
@@ -95,7 +95,7 @@ export default function Register() {
                 value={formikRegister.values.email}
                 type="text"
                 name="email"
-                placeholder="Email Address"
+                placeholder="john@gmail.com"
                 className="px-3 py-2 mt-4 border-b-[1px] border-black w-full sm:w-2/3 focus:outline-none"
               />
               {formikRegister.errors.email && formikRegister.touched.email ? (
@@ -108,7 +108,7 @@ export default function Register() {
                 value={formikRegister.values.password}
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder="1234"
                 className="px-3 py-2 mt-4 border-b-[1px] border-black w-full sm:w-2/3 focus:outline-none"
               />
               {formikRegister.errors.password &&
@@ -122,7 +122,7 @@ export default function Register() {
                 value={formikRegister.values.phone}
                 type="text"
                 name="phone"
-                placeholder="Phone"
+                placeholder="01012453357"
                 className="px-3 py-2 mt-4 border-b-[1px] border-black w-full sm:w-2/3 focus:outline-none"
               />
               {formikRegister.errors.phone && formikRegister.touched.phone ? (
@@ -135,7 +135,7 @@ export default function Register() {
                 value={formikRegister.values.address}
                 type="text"
                 name="address"
-                placeholder="address"
+                placeholder="hyderabad"
                 className="px-3 py-2 mt-4 border-b-[1px] border-black w-full sm:w-2/3 focus:outline-none"
               />
               {formikRegister.errors.address &&
