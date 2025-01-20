@@ -116,7 +116,7 @@ export default function Register() {
                 <ErrorComponet message={formikRegister.errors.password} />
               ) : null}
 
-              <input
+              {/* <input
                 onChange={formikRegister.handleChange}
                 onBlur={formikRegister.handleBlur}
                 value={formikRegister.values.phone}
@@ -127,9 +127,9 @@ export default function Register() {
               />
               {formikRegister.errors.phone && formikRegister.touched.phone ? (
                 <ErrorComponet message={formikRegister.errors.phone} />
-              ) : null}
+              ) : null} */}
 
-              <input
+              {/* <input
                 onChange={formikRegister.handleChange}
                 onBlur={formikRegister.handleBlur}
                 value={formikRegister.values.address}
@@ -137,12 +137,12 @@ export default function Register() {
                 name="address"
                 placeholder="hyderabad"
                 className="px-3 py-2 mt-4 border-b-[1px] border-black w-full sm:w-2/3 focus:outline-none"
-              />
+              /> */}
               {formikRegister.errors.address &&
               formikRegister.touched.address ? (
                 <ErrorComponet message={formikRegister.errors.address} />
               ) : null}
-              <select
+              {/* <select
                 name="gender"
                 className="px-3 py-2 mt-4 border-b-[1px] border-black w-full sm:w-2/3 focus:outline-none"
                 onChange={formikRegister.handleChange}
@@ -151,7 +151,7 @@ export default function Register() {
               >
                 <option value={"male"}>male</option>
                 <option value={"female"}>female</option>
-              </select>
+              </select> */}
               {formikRegister.errors.gender && formikRegister.touched.gender ? (
                 <ErrorComponet message={formikRegister.errors.gender} />
               ) : null}
