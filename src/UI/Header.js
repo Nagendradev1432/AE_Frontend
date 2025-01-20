@@ -46,7 +46,7 @@ export default function Header() {
               location.pathname === "/register" ? "bg-white" : ""
             }   py-4 px-3`}
           >
-            {/* <Link to={"/register"}> Register </Link> */}
+            <Link to={"/register"}> Register </Link>
           </li>
           <li
             className={`${
