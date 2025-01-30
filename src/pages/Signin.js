@@ -21,8 +21,29 @@ const navigate = useNavigate()
 
 
     
-  
+  const handleGuestLogin=async()=>{
+    setIsLoading(true);
+    await axios
+      .post(`https://ae-back-end.vercel.app/api/v1/AE/user/signin`, {password:'1234',email:'john@gmail.com'})
+      .then((res) => {
+        setErrorMessage("")
+        
+        // auth(res.data.token) 
+        dispatch(reciveToken(res.data.token))
+        navigate("/")
+        
+      })
+      .catch((err) => {
+        setErrorMessage(err.response.data.message)
+        console.log(err)
+
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
   async function createUser(data) {
+    console.log(data)
     setIsLoading(true);
     await axios
       .post(`https://ae-back-end.vercel.app/api/v1/AE/user/signin`, data)
@@ -86,7 +107,7 @@ const navigate = useNavigate()
                 value={formiksignIN.values.email}
                 type="text"
                 name="email"
-                placeholder="john@gmail.com"
+                placeholder="kalki@gmail.com"
                 className="px-3 py-2 mt-4 border-b-[1px] border-black w-full sm:w-2/3 focus:outline-none"
               />
               {formiksignIN.errors.email && formiksignIN.touched.email ? (
@@ -117,6 +138,7 @@ const navigate = useNavigate()
               >
                 {isLoading ? <Loader h={30} w={50} /> : "Sign in"}
               </button>
+
                
               <p className="text-semibold my-3 text-center w-2/3 "><Link to={"/register"}>Create New Email ?</Link></p>
             </div>

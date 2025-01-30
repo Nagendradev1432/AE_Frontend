@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 
 export const baseUrl = "https://ae-back-end.vercel.app/api/v1/AE/";
 
+
 export const getAllProducts = () => {
   return axios.get(`${baseUrl}product`, {
     headers: {
